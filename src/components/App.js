@@ -8,6 +8,7 @@ import Demo from './Demo'
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from './NavBar';
+import Graph from './graph';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
      <Route exact path='/AddXml' component={AddXml}/>
      <Route exact path='/AddUser' component={AddUser}/>
      <Route exact path='/Demo' component={Demo}/>
+     <Route exact path='/graph' component={Graph}/>
 
     </Router>
 

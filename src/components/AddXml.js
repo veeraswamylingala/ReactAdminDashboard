@@ -169,12 +169,10 @@ import SidebarClass from './SideBar'
       <div class="row">
 
         
-      <div class="col-md-2 col-xs-5 orange">
-      <SidebarClass/>
-        </div>
+     
 
 
-        <div class="col-md-10 col-xs-7 green">
+        <div class="col-md-12 col-xs-7 green">
         <br></br><br></br>
         <div class="card text-black bg-light mb-3">
         <div class="card-header">Upload Xml</div>
@@ -207,7 +205,7 @@ import SidebarClass from './SideBar'
 
 
                          <br></br><br></br><br></br>
-                          <h4>List of Files in /src/Pictures...   {this.state.listOfPictires.length}</h4>
+                          {/* <h4>List of Files in /src/Pictures...   {this.state.listOfPictires.length}</h4> */}
                            <div><table class="table table-bordered">
                              <th scope="col">Sl.no</th> 
                              <th scope="col">File Name</th>

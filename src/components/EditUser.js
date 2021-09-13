@@ -38,10 +38,8 @@ import SidebarClass from './SideBar';
         <div>
         <div class="container-fluid">
       <div class="row">
-      <div class="col-md-2 col-xs-5 ">
-      <SidebarClass/>
-        </div>
-        <div class="col-md-10 col-xs-7 ">
+    
+        <div class="col-md-12 col-xs-7 ">
         <br></br><br></br>
        <div class="card text-black bg-light mb-3">
   <div class="card-header">Update User</div>

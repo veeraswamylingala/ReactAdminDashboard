@@ -58,6 +58,11 @@ const SideBar = () => {
           Add XML 
         </Item></Link>
         <hr class="sidebar-divider my-0" color="grey" />
+        <Link to='./graph'><Item bgColor='black'>
+          <Icon><i className="fas fa-rss-square"/></Icon>
+          Graphs
+        </Item></Link>
+        <hr class="sidebar-divider my-0" color="grey" />
         {/* <Link to='./Demo'><Item bgColor='black'>
           <Icon><i className="fas fa-rss-square"/></Icon>
           Demo 

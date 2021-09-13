@@ -28,11 +28,8 @@ import './css/in.css'
     <div>
       <div class="container-fluid">
     <div class="row">
-    <div class="col-md-2 col-xs-5 orange">
-        
-
-         <SidebarClass/></div>
-         <div class="col-md-10 col-xs-7 green">
+   
+         <div class="col-md-12 col-xs-7 green">
              
              {/* //Card - 1 */}
              <br/><br/>
