@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
+import moment from 'moment';
 import ReactApexChart from "react-apexcharts";
 import "reactjs-popup/dist/index.css";
 import MyVerticallyCenteredModal from "./Model/model";
@@ -204,13 +205,23 @@ const ChartSpace = () => {
   };
 
   //this will generate default chart Series Data-----
-  const defaultDataList = nameList.map((name, i) => ({
+  const defaultDataList = nameList.map((name, i) =>{
+
+    var d =  moment(Date()).subtract(1,"second")
+   
+  //  console.log(i)
+   
+  //  console.log(d['_d']);
+
+  return  ({
     name: name,
     data: [
-      //  {x: new Date()getMilliseconds-1,y:30.95}
+      //  {x: d["_d"],y:30.95}
     ],
     color: lineColors[i],
-  }));
+  })
+  
+});
 
   //UseState for ChartSeries Data
   const [dataList, setDataList] = React.useState(defaultDataList);
@@ -220,6 +231,9 @@ const ChartSpace = () => {
 
   //UseEffect
   React.useEffect(() => {
+
+ 
+  
     //AddDataRandomly  Function------------------
   const  addDataRandomly = (data,Yvalue) => {
    
