@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-
 import "reactjs-popup/dist/index.css";
 import MyVerticallyCenteredModal from "./Model/model";
 
@@ -222,10 +221,9 @@ const ChartSpace = () => {
   //UseEffect
   React.useEffect(() => {
     //AddDataRandomly  Function------------------
-    const addDataRandomly = (data) => {
-      // if (Math.random() < 1 - ADDING_DATA_RATIO) {
-      //   return data;
-      // }
+  const  addDataRandomly = (data,Yvalue) => {
+   
+   
       const min = 1;
       const max = 100;
       const rand = min + Math.random() * (max - min);
@@ -234,16 +232,22 @@ const ChartSpace = () => {
         ...data,
         {
           x: new Date().toLocaleString(),
-          y: parseInt(rand, 10),
+         // this will generate Random Number-
+         // y: parseInt(rand,10)
+          y: Yvalue
         },
       ];
     };
 
     //Timer for Every Selected Time Interval
     const interval = setInterval(() => {
+      var d = "vee"
+  axios.post(`https://demo3412.herokuapp.com/tag`, {d}).then((res)=>{
+    console.log(res.data.tagValue);
+
       //isGraphStopped is  equal to false
       if (!isGraphStopped) {
-        console.log("Graph is Active", length);
+       // console.log("Graph is Active", length);
         //Validation to plot points to graph even the chart is stopped
         if (length != 0) {
           setDataList(tempDataPoints);
@@ -251,10 +255,10 @@ const ChartSpace = () => {
           console.log("Length is", length);
         } else {
           setDataList(
-            dataList.map((val) => {
+            dataList.map((val,i) => {
               return {
                 name: val.name,
-                data: addDataRandomly(val.data),
+                data: addDataRandomly(val.data,res.data.tagValue+(i*20)),
                 color: val.color,
               };
             })
@@ -270,15 +274,16 @@ const ChartSpace = () => {
           setLength(dataList.length);
         }
         console.log(tempDataPoints);
-        tempDataPoints = tempDataPoints.map((val) => {
+        tempDataPoints = tempDataPoints.map((val,i) => {
           //   console.log(addDataRandomly(val.data))
           return {
             name: val.name,
-            data: addDataRandomly(val.data),
+            data: addDataRandomly(val.data,res.data.tagValue+(i*20)),
             color: val.color,
           };
         });
       }
+    })
     }, sampleRate);
 
     return () => clearInterval(interval);
